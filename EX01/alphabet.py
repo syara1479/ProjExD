@@ -2,6 +2,7 @@ import random
 import datetime
 x = 10
 y = 2
+check = 1
 
 def shutudai():
     a = list() 
@@ -54,7 +55,7 @@ if __name__ == "__main__":
     st = datetime.datetime.now()
     shutudai()
     while True:
-        if z == 1:
+        if check == 1:
             shutudai()
         else:
             break

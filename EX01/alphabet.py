@@ -2,7 +2,7 @@ import random
 import datetime
 x = 10
 y = 2
-z = 1
+
 def shutudai():
     a = list() 
     b = list()
@@ -29,14 +29,14 @@ def shutudai():
         print(a[i] , end =" ")
     print("")
 
-    kaito1()
-    kaito2(b)
+    kaito1(b)
 
-def kaito1():
-    ans = input("欠損文字はいくつあるでしょうか？")
+def kaito1(list):
+    ans = int(input("欠損文字はいくつあるでしょうか？"))
     if ans == y :
         print("正解です。それでは具体的に欠損文字をひとつづつ入力してください")
-
+        kaito2(list)
+        
 def kaito2(b):
     corect = 0
     for i in range(2):
@@ -45,7 +45,7 @@ def kaito2(b):
             corect += 1
     if corect == 2:
         print("正解です。")
-        z = 0
+        
     else:
         print("不正解です。またチャレンジしてください。")
 

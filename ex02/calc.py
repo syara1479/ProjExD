@@ -52,7 +52,6 @@ operators = ["+","-", "*","/"] # 演算子だけのリスト
 SP_operators = ["(", ")", "."] #特殊演算子のリスト
 
 for i, num in enumerate(numbers, 1):
-
     button = tk.Button(root,
                         text = f"{num}",
                         font=("Times New Roman", 30),
@@ -67,7 +66,6 @@ for i, num in enumerate(numbers, 1):
 
 r = 1
 for j, num2 in enumerate(operators, 1):
-
     button = tk.Button(root,
                         text = f"{num2}",
                         font=("Times New Roman", 30),
@@ -80,7 +78,6 @@ for j, num2 in enumerate(operators, 1):
 
 r = 1
 for j, num2 in enumerate(SP_operators, 1):
-
     button = tk.Button(root,
                         text = f"{num2}",
                         font=("Times New Roman", 30),
@@ -90,16 +87,20 @@ for j, num2 in enumerate(SP_operators, 1):
     button.bind("<1>",button_click)
     button.grid(row = r, column=4)
     r += 1
-    
+
+#イコールボタンの設定
 
 btn = tk.Button(root, text=f"=", font=("", 30), width=8, height=2)
 btn.bind("<1>", click_equal)
 btn.grid(row=r, column=c, columnspan=2)
 
+#クリアボタンの設定
 btn = tk.Button(root, text=f"C", font=("", 30),bg="red", width=4, height=2)
 btn.bind("<1>", click_cler)
 btn.grid(row=4, column=4)
 
+
+#sinボタンの設定
 btn = tk.Button(root, text=f"sin", font=("", 30),bg="red", width=4, height=2)
 btn.bind("<1>", click_sin)
 btn.grid(row=4, column=5)

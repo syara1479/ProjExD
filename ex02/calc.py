@@ -10,16 +10,18 @@ def button_click(event):
     num =btn["text"]
     entry.insert(tk.END, num)
 
+#イコール関数
 def click_equal(event):
     eqn = entry.get()
     res = eval(eqn)
     entry.delete(0, tk.END)
     entry.insert(tk.END, res) # 練習7
 
+#クリアの関数
 def click_cler(event):
     entry.delete(0, tk.END)
 
-
+#sinの関数
 def click_sin(event):
      eqn = int(entry.get())
      rad = np.deg2rad(eqn)
@@ -47,7 +49,7 @@ r, c = 1, 0
 
 numbers = list(range(9, -1, -1)) # 数字だけのリスト
 operators = ["+","-", "*","/"] # 演算子だけのリスト
-SP_operators = ["(", ")", "."]
+SP_operators = ["(", ")", "."] #特殊演算子のリスト
 
 for i, num in enumerate(numbers, 1):
 

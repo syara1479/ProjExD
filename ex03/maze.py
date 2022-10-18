@@ -1,4 +1,5 @@
 import tkinter as tk
+import maze_maker as mm
 
 def key_down(event):
     global key
@@ -33,6 +34,9 @@ if __name__ == "__main__" :
     canb = tk.Canvas(root, width = 1500, height= 900, bg = "black")
     canb.pack()
 
+    maze_list = mm.make_maze(15,9)
+    mm.show_maze(canb,maze_list)
+
     tori = tk.PhotoImage(file="ex03/fig/5.png")
     cx, cy = 300, 400
     canb.create_image(cx, cy, image=tori, tag="tori")
@@ -43,6 +47,8 @@ if __name__ == "__main__" :
     root.bind("<KeyRelease>", key_up)
 
     main_proc()
+
+
     
 
     root.mainloop()

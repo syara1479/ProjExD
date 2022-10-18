@@ -63,7 +63,6 @@ if __name__ == "__main__" :
     tori5 = tk.PhotoImage(file="ex03/fig/5.png")
     tori6 = tk.PhotoImage(file="ex03/fig/6.png")
     
-
     mx, my =1, 1
     cx, cy = 300, 400
 

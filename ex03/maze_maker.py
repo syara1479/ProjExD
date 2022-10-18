@@ -1,3 +1,4 @@
+#maze_maker.pyの改変ver
 import random
 
 def make_maze(yoko, tate):
@@ -30,8 +31,11 @@ def show_maze(canvas, maze_lst):
         for x in range(len(maze_lst[y])):
             canvas.create_rectangle(x*100, y*100, x*100+100, y*100+100, 
                                     fill=color[maze_lst[y][x]])
+#追加のコード                   
+    #スタートのマスの色の変更                 
     canvas.create_rectangle(1*100, 1*100, 1*100+100, 1*100+100, 
                                     fill="green")
+    #ゴールのマスの色の変更
     canvas.create_rectangle(13*100, 7*100, 13*100+100, 7*100+100, 
                                     fill="red")
    

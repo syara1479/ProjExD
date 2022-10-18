@@ -11,14 +11,29 @@ def key_up(event):
 
 def main_proc():
     global cx, cy
+    global mx, my
     if key == "Up":
-        cy -= 20
+        my -= 1
     elif key == "Down":
-        cy += 20
+        my += 1
     elif key == "Left":
-        cx -= 20
+        mx -= 1
     elif key == "Right":
-        cx += 20
+        mx += 1
+
+    cx, cy = mx*100+50, my*100+50
+
+    if maze_list[my][mx] == 0: # 床なら
+        cx, cy = mx*100+50, my*100+50
+    else: # 壁なら
+        if key == "Up":
+            my += 1
+        if key == "Down":
+            my -= 1
+        if key == "Left":
+            mx += 1
+        if key == "Right":
+            mx -= 1    
 
     canb.coords("tori", cx, cy)
 
@@ -38,6 +53,7 @@ if __name__ == "__main__" :
     mm.show_maze(canb,maze_list)
 
     tori = tk.PhotoImage(file="ex03/fig/5.png")
+    mx, my =1, 1
     cx, cy = 300, 400
     canb.create_image(cx, cy, image=tori, tag="tori")
 

@@ -12,7 +12,6 @@ def check_bound(obj_rct, scr_rct):
         tate = -1
     return yoko, tate
 
-
 def game_over():
     pg.display.set_caption("Game Over")
     scrn_sfc = pg.display.set_mode((1600, 900))
@@ -105,12 +104,8 @@ def main():
         if tori_rct.colliderect(bomb_rct): # こうかとんrctが爆弾rctと重なったら
             check_game = 1
             return
-
         pg.display.update()
         clock.tick(1000)
-
-    
-
 
 if __name__ =="__main__":
     pg.init()

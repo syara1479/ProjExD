@@ -98,8 +98,10 @@ def main():
             vy -= 0.0005
         elif vy > 0:
             vy += 0.0005
-        bomb_rct.move_ip(vx, vy)         #練習6
-        scrn_sfc.blit(bomb_sfc, bomb_rct)#練習5
+        #練習6
+        bomb_rct.move_ip(vx, vy)
+        #練習5         
+        scrn_sfc.blit(bomb_sfc, bomb_rct)
         # 練習8
         if tori_rct.colliderect(bomb_rct): # こうかとんrctが爆弾rctと重なったら
             check_game = 1

@@ -20,6 +20,16 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
+        #練習4
+        key_lst = pg.key.get_pressed()
+        if key_lst[pg.K_UP]:
+            tori_rct.centery -=1
+        if key_lst[pg.K_DOWN]:
+            tori_rct.centery +=1
+        if key_lst[pg.K_LEFT]:
+            tori_rct.centerx -=1
+        if key_lst[pg.K_RIGHT]:
+            tori_rct.centerx +=1
         scrn_sfc.blit(tori_sfc, tori_rct)#練習3
         pg.display.update()
         clock.tick(1000)

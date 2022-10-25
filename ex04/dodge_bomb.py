@@ -15,11 +15,13 @@ def check_bound(obj_rct, scr_rct):
 def game_over():
     pg.display.set_caption("Game Over")
     scrn_sfc = pg.display.set_mode((1600, 900))
+
     #画像
     go_sfc = pg.image.load("ex04/fig/game_over.png")
     go_rct = go_sfc.get_rect()
     go_rct.center = 800, 450
     scrn_sfc.blit(go_sfc, go_rct)
+    
     #時間
     pg.display.update()
     clock = pg.time.Clock()

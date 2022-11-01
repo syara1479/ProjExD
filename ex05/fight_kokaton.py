@@ -74,6 +74,7 @@ class Enemy:
          # 練習6
         self.blit(scr) # =scr.sfc.blit(self.sfc, self.rct) # 練習5
 
+
 class Gameover:
     def __init__(self, title, wh, goimg):
         pg.display.set_caption(title)#"Game Over"
@@ -82,8 +83,10 @@ class Gameover:
         self.go_sfc = pg.image.load(goimg)#"ex04/fig/game_over.png"
         self.go_rct = self.go_sfc.get_rect()
         self.rct.center = 800, 450
+
     def blit(self):
         self.sfc.blit(self.go_sfc, self.go_rct)
+
 
 class shot:
     speed = -10
@@ -94,11 +97,11 @@ class shot:
         self.rct = self.sfc.get_rect()
         self.rct.centerx = koka_rect.reft
         self.rct.centery = koka_rect.up
+
     def update(self):
         self.rect.move_ip(0, self.speed)
         if self.rect.top <= 0:
             self.kill()
-
 
 
 def check_bound(obj_rct, scr_rct):
@@ -134,13 +137,10 @@ def main():
     clock = pg.time.Clock() # 練習1
     while True:
         scr.blit() # 練習2
-
         for event in pg.event.get(): # 練習2
             if event.type == pg.QUIT:
                 return
-
         kkt.update(scr)
-        
         # 練習7
         bkd.update(scr)
         key_lst = pg.key.get_pressed()
@@ -151,8 +151,8 @@ def main():
         if kkt.rct.colliderect(bkd.rct): # こうかとんrctが爆弾rctと重なったら
             check_game = 1
             return
-
-        pg.display.update() #練習2
+        #練習2
+        pg.display.update() 
         clock.tick(1000)
 
 if __name__ == "__main__":

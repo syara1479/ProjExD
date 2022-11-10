@@ -44,12 +44,14 @@ def game_clear():
 
 def main():
     global gr, vy, canJump, Ground, check_clear
+    time = int(pg.time.get_ticks() / 1000)
+    font = pg.font.SysFont("hg正楷書体pro", 30)
     pg.display.set_caption("アクションこうかとん")
     scrn_sfc = pg.display.set_mode((800, 480))
     scrn_rct = scrn_sfc.get_rect()
-    bg_sfc = pg.image.load("ex06/IMG_3412.PNG")
+    bg_sfc = pg.image.load("fig/back.png")
     bg_rct = bg_sfc.get_rect()
-    tori_sfc = pg.image.load("ex06/fig/6.png")
+    tori_sfc = pg.image.load("fig/2.png")
     tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
     tori_rct = tori_sfc.get_rect()
     tori_rct.left = 0
@@ -57,6 +59,8 @@ def main():
 
     clock = pg.time.Clock()
     while True:
+        time = int(pg.time.get_ticks() / 1000)
+        text = font.render("タイム:" +str(time), True, (0, 0, 0))
         scrn_sfc.blit(bg_sfc, bg_rct)
         #ゴールポールの描画
         pg.draw.rect(scrn_sfc,(255,255,255),(750,100,5,320))
@@ -112,6 +116,9 @@ def main():
         if tori_rct.right > 750 and tori_rct.bottom > 100:
             check_clear = True
             return
+
+        scrn_sfc.blit(text, (0, 0))
+
         pg.display.update()
         clock.tick(800)
         

@@ -4,14 +4,13 @@ import sys
 from random import randint
 import tkinter.messagebox as tkm
 
-check_over = False
 check_clear = False
 Ground = 360
 canJump = True
 vy = 0 # y方向の速度
 gr = 0.2 # 重力加速度
 
-class Gamefinish:
+class Gameclear:
     def __init__(self, title, wh, goimg):
         pg.display.set_caption(title)
         self.sfc = pg.display.set_mode(wh)
@@ -37,22 +36,14 @@ def janp():
         vy = -10 # 初速を与える
 
 def game_clear():
-    game = Gamefinish("Gameclear", (700, 400),"ex06/game_clear.png")
+    game = Gameclear("Gameclear", (700, 400),"ex06/game_clear.png")
     game.blit()
     pg.display.update()
     clock = pg.time.Clock()
     clock.tick(0.2)
-
-def game_over():
-    game = Gamefinish("Gameovar", (700, 400),"ex06/fig/game_over.png")
-    game.blit()
-    pg.display.update()
-    clock = pg.time.Clock()
-    clock.tick(0.2)
-
 
 def main():
-    global gr, vy, canJump, Ground, check_clear, check_over
+    global gr, vy, canJump, Ground, check_clear
     pg.display.set_caption("アクションこうかとん")
     scrn_sfc = pg.display.set_mode((800, 480))
     scrn_rct = scrn_sfc.get_rect()
@@ -74,12 +65,6 @@ def main():
         pg.draw.rect(scrn_sfc,(116,80,48),(200,370,150,50))
         pg.draw.rect(scrn_sfc,(116,80,48),(350,320,150,100))
         pg.draw.rect(scrn_sfc,(116,80,48),(500,270,150,150))
-        #スライムの描画
-        sura_sfc = pg.image.load("figge/sura.png")
-        sura_sfc = pg.transform.rotozoom(sura_sfc, 0, 2.0)
-        sura_rct = sura_sfc.get_rect()
-        sura_rct.center = 400, 400   
-
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
@@ -127,22 +112,13 @@ def main():
         if tori_rct.right > 750 and tori_rct.bottom > 100:
             check_clear = True
             return
-        
-        if tori_rct.colliderect(sura_rct):
-            check_over = True
-            return
-        
         pg.display.update()
         clock.tick(800)
-
-        
         
 if __name__ == "__main__" :
     pg.init()
     main()
     if check_clear:
         game_clear()
-    elif check_over:
-        game_over()
     pg.quit()
     sys.exit()

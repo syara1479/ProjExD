@@ -53,6 +53,7 @@ def game_over():
 
 def main():
     global gr, vy, canJump, Ground, check_clear
+    #(斎藤登担当)
     time = int(pg.time.get_ticks() / 1000)
     font = pg.font.SysFont("hg正楷書体pro", 30)
     global gr, vy, canJump, Ground, check_clear, check_over
@@ -79,7 +80,7 @@ def main():
         pg.draw.rect(scrn_sfc,(116,80,48),(200,370,150,50))
         pg.draw.rect(scrn_sfc,(116,80,48),(350,320,150,100))
         pg.draw.rect(scrn_sfc,(116,80,48),(500,270,150,150))
-        #スライムの描画
+        #スライムの描画(五月女担当)
         sura_sfc = pg.image.load("fig/sura.png")
         sura_sfc = pg.transform.rotozoom(sura_sfc, 0, 0.1)
         sura_rct = sura_sfc.get_rect()
@@ -136,7 +137,7 @@ def main():
 
         scrn_sfc.blit(text, (0, 0))
         
-        if tori_rct.colliderect(sura_rct):
+        if tori_rct.colliderect(sura_rct):#(五月女担当)
             check_over = True
             return
         

@@ -83,7 +83,7 @@ def main():
         sura_sfc = pg.image.load("fig/sura.png")
         sura_sfc = pg.transform.rotozoom(sura_sfc, 0, 0.1)
         sura_rct = sura_sfc.get_rect()
-        sura_rct.center = 430, 300
+        sura_rct.center = 690, 400
         scrn_sfc.blit(sura_sfc, sura_rct)
 
         for event in pg.event.get():

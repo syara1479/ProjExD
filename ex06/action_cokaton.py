@@ -80,10 +80,11 @@ def main():
         pg.draw.rect(scrn_sfc,(116,80,48),(350,320,150,100))
         pg.draw.rect(scrn_sfc,(116,80,48),(500,270,150,150))
         #スライムの描画
-        sura_sfc = pg.image.load("figge/sura.png")
-        sura_sfc = pg.transform.rotozoom(sura_sfc, 0, 2.0)
+        sura_sfc = pg.image.load("fig/sura.png")
+        sura_sfc = pg.transform.rotozoom(sura_sfc, 0, 0.1)
         sura_rct = sura_sfc.get_rect()
-        sura_rct.center = 400, 400   
+        sura_rct.center = 430, 300
+        scrn_sfc.blit(sura_sfc, sura_rct)
 
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -133,20 +134,15 @@ def main():
             check_clear = True
             return
 
-
         scrn_sfc.blit(text, (0, 0))
-
-
         
         if tori_rct.colliderect(sura_rct):
             check_over = True
             return
         
-
         pg.display.update()
         clock.tick(800)
 
-        
         
 if __name__ == "__main__" :
     pg.init()
